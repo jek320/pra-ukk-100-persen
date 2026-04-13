@@ -55,5 +55,28 @@ In order to ensure that the Laravel community is welcoming to all, please review
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
+<table>
+    <thead>
+        <tr>
+            <th>Nama</th>
+            <th>NISN</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($siswaPending as $s)
+        <tr>
+            <td>{{ $s->nama }}</td>
+            <td>{{ $s->nisn }}</td>
+            <td>
+                <form action="{{ route('admin.setujui', $s->id) }}" method="POST">
+                    @csrf
+                    <button type="submit">Setujui</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
